@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title>Backbone JS Test Page</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js"></script>
+	<script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"></script>
+</head>
+
+<body>
+
+	<button id="build-list-button">Build List</button>
+
+	<div id="wrapper"></div>
+	
+	<script>
+		(function($) {
+
+			// Declare a person model
+			Person = Backbone.Model.extend({
+				name: null
+			});
+
+			// Declare a Persons collection
+			Persons = Backbone.Collection.extend({
+				initialize: function (viewInitOptions) {
+					this.bind("add", viewInitOptions.view.addPerson);
+				}
+			});
+
+			// Declare the application view object
+			AppView = Backbone.View.extend({
+				// Declare the root element??? (not sure what this does)
+				el: $('body'), 
+
+				// View initialization function
+				initialize: function () {
+					// Initialize persons collection
+					this.persons = new Persons( { view: this });
+				}, 
+
+				// Register event handlers
+				events: {
+					"click #build-list-button": "buildList", // When #build-list-button clicked, call buildList()
+				}, 
+
+				// Register a function used to build the list
+				buildList: function () {
+					// Simulate getting some data
+					var person1 = new Person({ name: "Stu" });
+					var person2 = new Person({ name: "Bill" });
+					var person3 = new Person({ name: "Robert" });
+					
+					$('#wrapper').append('<ul id="person-list-container"></ul>'); //MVC
+
+					this.persons.add( person1 );
+					this.persons.add( person2 );
+					this.persons.add( person3 );
+				}, 
+
+				// Register a function used to add a person to the list
+				addPerson: function (person) {
+					// Can get the template from MVC?? (add to a global JS cache at startup?)
+					$('#person-list-container').append('<li>Person: ' + person.get('name') + '</li>') // MVC
+				}
+			});
+
+			var appView = new AppView;
+
+		})(jQuery);
+	</script>
+
+</body>
+
+</html>

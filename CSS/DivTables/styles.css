@@ -1,0 +1,114 @@
+/* Schedule table */
+.schedule-table
+{
+	display: table;
+	border-collapse: collapse;
+	border: 1px solid #a0a0a0;
+	width: 520px;
+}
+.schedule-table-row
+{
+	display: table-row;
+}
+.schedule-table-cell
+{
+	display: table-cell;
+}
+.schedule-table-grid-cell
+{
+	display: table-cell;
+	width: 400px;
+}
+
+
+/* Toggle control (outer table: 0,0) */
+.toggle-control
+{
+	border-right: solid 1px #a0a0a0;
+	border-bottom: solid 1px #a0a0a0;
+	height: 20px;
+	padding-left: 8px;
+	width: 120px;
+}
+
+
+/* Timeslot headers */
+.timeslot-header-table
+{
+	display: table;
+	border-collapse: collapse;
+}
+.timeslot-header-row
+{
+	display: table-row;
+	height: 20px;
+}
+.timeslot-header-cell
+{
+	border-bottom: solid 1px #a0a0a0;
+	border-right: solid 1px #a0a0a0;
+	display: table-cell;
+	height: 20px;
+	text-align: center;
+	min-width: 80px;
+	width: 80px;
+}
+.timeslot-header-table-scroll-container
+{
+	overflow: hidden;
+	width: 420px;
+}
+
+
+/* Technician headers */
+.technician-name-table
+{
+	display: table;
+	border-collapse: collapse;
+}
+.technician-name-row
+{
+	display: table-row;
+}
+.technician-name-cell
+{
+	border-right: solid 1px #a0a0a0;
+	border-bottom: solid 1px #a0a0a0;
+	display: table-cell;
+	padding-left: 8px;
+	min-width: 120px;
+	width: 120px;
+}
+.technician-name-table-scroll-container
+{
+	height: 130px;
+	overflow: hidden;
+}
+
+
+/* Background grid */
+.schedule-grid-table
+{
+	display: table;
+	border-collapse: collapse;
+	width: 420px;
+}
+.schedule-grid-row
+{
+	display: table-row;
+}
+.schedule-grid-cell
+{
+	display: table-cell;
+	border-right: 1px solid #a0a0a0;
+	border-bottom: 1px solid #a0a0a0;
+	text-align: center;
+	min-width: 80px;
+	width: 80px;
+}
+.schedule-grid-scroll-container
+{
+	overflow: scroll; 
+	height: 130px;
+	width: 420px;
+}

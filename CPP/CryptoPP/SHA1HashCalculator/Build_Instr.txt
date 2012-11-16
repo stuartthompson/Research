@@ -1,0 +1,1 @@
+g++ -I/opt/local/include -L/opt/local/lib -lcryptopp -lboost_system -lboost_filesystem SHA1HashCalculator.cpp SHA1HashCalcTest.cpp -o sha1test

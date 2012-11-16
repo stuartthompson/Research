@@ -1,0 +1,7 @@
+To build these files, use the following:
+
+g++ -I/opt/local/include dircontents1.cpp -o dc1 -L/opt/local/lib -lboost_filesystem -lboost_regex -lboost_system
+
+g++ -I/opt/local/include dircontents2.cpp -o dc2 -L/opt/local/lib -lboost_filesystem -lboost_regex -lboost_system
+
+This assumes that the boost libraries are installed in /opt/local

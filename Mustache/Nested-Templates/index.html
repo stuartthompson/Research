@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Mustache Nested Templates Sample</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js"></script>
+	<script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min.js"></script>
+</head>
+<body>
+	<h1>Mustache Nested Templates Sample</h1>
+	This example demonstrates binding a JSON object that contains collections to a Mustache template that binds items 
+	in those collections recursively.
+
+	<!-- The expanded template will be displayed here -->
+	<div id="targetElement"></div>
+</body>
+</html>
+
+<script type="text/template" id="testTemplate">
+{{#manufacturers}}
+	<h3>{{name1}}</h3>
+	<div>
+		<ul>
+		{{#products}}
+			<li>{{name}} - {{price}}</li>
+		{{/products}}
+		</ul>
+	</div>
+{{/manufacturers}}
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	// NOTE: We would usually use BackBoneJS for this!
+	
+	// Get the template
+	var template = $('#testTemplate').html();
+
+	// Get some data
+	var data = getData();
+
+	// Bind the data to the template
+	var html = Mustache.to_html(template, data);
+
+	// Append the html to the target element
+	$('#targetElement').append(html);
+});
+
+function getData() {
+	var data = {
+		manufacturers: [
+			{
+				name1: "ACME", 
+				products: [
+					{ name: "Explosion Kit", price: "$10.99" }, 
+					{ name: "Roadrunner Trap", price: "$14.99" }, 
+					{ name: "Squirt Gun", price: "$5.00" }
+				]
+			}, 
+			{
+				name1: "Empire", 
+				products: [
+					{ name: "Star Destroyer II", price: "$32,150,650,000" },
+					{ name: "Death Star ", price: "$1,000,000,000,000" }, 
+					{ name: "Light Saber", price: "$CALL" }
+				]
+			}, 
+			{
+				name1: "Apple", 
+				products: [
+					{ name: "iPhone", price: "$750" },
+					{ name: "iPad", price: "$499" },
+					{ name: "MacBook Pro", price: "$1,200" }
+				]
+			}
+		]
+	};
+
+	return data;
+}
+</script>

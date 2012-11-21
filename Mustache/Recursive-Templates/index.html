@@ -11,15 +11,22 @@
 </head>
 <body>
 	<h1>Mustache Recursive Templates Sample</h1>
-	This example demonstrates binding a JSON object that contains collections to a Mustache template that binds items 
-	in those collections recursively.
+	This example binds a JSON object that contains child collections to a Mustache template. The template uses the 
+	recursive markup features of Mustache to bind the items to a list.
 
-	<h3>Source Code</h3>
+	<h2>Source Code</h2>
 	The source code for this sample is available on GitHub:<br/>
 	<a href="https://github.com/stuartthompson/Research/tree/master/Mustache/Recursive-Templates" target="_blank">https://github.com/stuartthompson/Research/tree/master/Mustache/Recursive-Templates</a>
 
+	<br/><br/><hr/>
+
 	<!-- The expanded template will be displayed here -->
-	<div id="targetElement"></div>
+	<h2>Demo</h2>
+	<div id="targetElement" style="border: solid 1px black; padding: 4px;">
+		Click the button below to bind the template and display the results in this div.
+	</div>
+
+	<button id="bindTemplateButton" onclick="BindTemplate();">Bind Template</button>
 </body>
 </html>
 
@@ -37,7 +44,7 @@
 </script>
 
 <script type="text/javascript">
-$(document).ready(function() {
+function BindTemplate() {
 	// NOTE: We would usually use BackBoneJS for this!
 	
 	// Get the template
@@ -50,8 +57,11 @@ $(document).ready(function() {
 	var html = Mustache.to_html(template, data);
 
 	// Append the html to the target element
-	$('#targetElement').append(html);
-});
+	$('#targetElement').html(html);
+
+	// Hide the button (pedantic)
+	$('#bindTemplateButton').hide();
+}
 
 function getData() {
 	var data = {

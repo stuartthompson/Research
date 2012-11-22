@@ -8,19 +8,28 @@
 	<link rel="stylesheet" type="text/css" href="http://cdn.stuartthompson.net/styles/simple/core.css" />
 </head>
 <body>
+	<h1>Mustache Simple Template Sample</h1>
+	This example binds a very simple JSON object to an equally simple Mustache template.
 
-	<div id="targetContainer">
+	<h2>Source Code</h2>
+	The source code for this sample is available here:<br/>
+	<a href="https://github.com/stuartthompson/Research/tree/master/Development/Web/Mustache/Simple-Template" target="_blank">https://github.com/stuartthompson/Research/tree/master/Development/Web/Mustache/Simple-Template</a>
 
-	</div>
+	<br/><br/><hr/>
+
+	<h2>Demo</h2>
+	The following data was bound from a Mustache template and JSON object:<br/><br/>
+	<!-- The expanded template will be displayed in this container -->
+	<div id="targetContainer"></div>
 
 </body>
 </html>
 
 <script type="text/template" id="simpleTemplate">
-<div>Make: {{make}}</div>
-<div>Model: {{model}}</div>
-<div>Color: {{color}}</div>
-<div>Status: {{status}}</div>
+<div>Make: <b>{{make}}</b></div>
+<div>Model: <b>{{model}}</b></div>
+<div>Color: <b>{{color}}</b></div>
+<div>Status: <b>{{status}}</b></div>
 </script>
 
 <script type="text/javascript">

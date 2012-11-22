@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Mustache - Simple Template Sample</title>
+	<script src="http://cdn.stuartthompson.net/js/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://cdn.stuartthompson.net/js/mustache/0.7.0/mustache.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="http://cdn.stuartthompson.net/styles/simple/core.css" />
+</head>
+<body>
+
+	<div id="targetContainer">
+
+	</div>
+
+</body>
+</html>
+
+<script type="text/template" id="simpleTemplate">
+<div>Make: {{make}}</div>
+<div>Model: {{model}}</div>
+<div>Color: {{color}}</div>
+<div>Status: {{status}}</div>
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	// Generate some data
+	var data = { make: "Subaru", model: "Impreza WRX STi", color: "Purple", status: "Awesome" };
+
+	// Get the template
+	var template = $('#simpleTemplate').html();
+
+	// Bind the data to the template
+	var boundHtml = Mustache.to_html(template, data);
+
+	// Put the generated html in the target container
+	$('#targetContainer').html(boundHtml);
+});
+</script>

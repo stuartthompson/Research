@@ -1,4 +1,5 @@
 bin/
+csx/
 obj/
 *.suo
 *.user

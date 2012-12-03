@@ -1,4 +1,2 @@
-Windows Communication Foundation
-================================
-
-Research projects in WCF.
+WCF Research Projects
+=====================

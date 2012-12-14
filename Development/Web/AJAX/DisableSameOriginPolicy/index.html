@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>AJAX Research - Disable Same Origin Policy</title>
+	<link rel="stylesheet" type="text/css" href="http://cdn.stuartthompson.net/styles/simple/core.css" />
+	<script src="http://cdn.stuartthompson.net/js/jquery/1.8.3/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+	<h1>AJAX Research - Disable Same Origin Policy</h1>
+	<p>
+		The same origin policy is enforced by browers to prevent requests from a web site on one domain from succeeding when making requests to web services running on another domain. This is great in a production environment but often in development it is desirable to have services running on a different server than a web site.
+	</p>
+	<p>
+		Some browsers allow disabling the same origin policy. For example, Chrome can be started using --disable-web-security and then allow requests to succeed. This test page can be used to verify that the same origin policy has been disabled.
+	</p>
+	<h2>Instructions</h2>
+	<p>
+		Start Chrome at the command line and supply the --disable-web-security option.
+		Navigate to this page to verify that the same origin policy has been disabled.
+	</p>
+	<h2>Results</h2>
+	<div id="results"></div>
+</body>
+</html>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	// Indicate that we're sending a request
+	$('#results').append('Sending request to http://cfpreader.stuartthompson.net/server/authenticate.php<br/>');
+	$.ajax({
+		url: 'http://cfpreader.stuartthompson.net/server/authenticate.php', 
+		type: 'GET', 
+		success: Success
+	});
+});
+
+function Success() {
+	$('#results').append('Request succeeded. Same origin policy disabled.<br/>');
+}
+</script>
+
+<style type="text/css">
+#results {
+	background: #404040;
+	border: 1px solid black;
+
+	font-family: Courier;
+	color: #00ff00;
+
+	height: 140px;
+	width: 700px;
+}
+</style>

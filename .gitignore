@@ -3,8 +3,9 @@ csx/
 obj/
 Debug/
 Release/
-*.suo
+*.exe
+*.opensdf
 *.sdf
+*.suo
 *.user
 *.zip
-*.exe
